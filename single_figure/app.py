@@ -6,8 +6,8 @@ import json
 
 class InvalidError(Exception):
     pass
-def is_number(x):
-    if x.stratwith("-"):
+def is_number(x: str):
+    if x.startswith("-"):
         x = x[1:]
     if not x.isdigit():
         return False
@@ -53,7 +53,7 @@ def lambda_handler(event, context):
         return{
         "statusCode": 400,
         "headers":{
-            "Content-Type": "applicafion/jsom"
+            "Content-Type": "application/json"
         },
         "body":json.dumps({
             "message":"整数値を入力してください。"
